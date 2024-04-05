@@ -9,7 +9,7 @@ SELECT DISTINCT(pincodes.district), states.id, states.country_id, 1
 FROM pincodes
 JOIN states ON pincodes.state_name = states.title;
 
-INSERT INTO zip_codes (title, district_id, status)
-SELECT pincodes.office_name, districts.id, 1
-FROM pincodes
-JOIN districts ON pincodes.district = districts.title;
+INSERT INTO zip_codes (title,zip_code, district_id, status)
+SELECT pincode.office_name,pincode.pincode, districts.id, 1
+FROM pincode
+JOIN districts ON pincode.district = districts.title;
